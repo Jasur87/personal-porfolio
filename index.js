@@ -60,33 +60,34 @@ const swiper = new Swiper('.swiper', {
 
 // nav menu functionality // 
 
-const menuBtn = document.querySelector('.nav__toggle-open');
-const closeBtn = document.querySelector('.nav__toggle-close');
-const menu = document.querySelector('.nav__menu');
+const navMenu = document.querySelector('.nav__menu');
+const navOpenBtn = document.querySelector('.nav__toggle-open');
+const navCloseBtn = document.querySelector('.nav__toggle-close');
+
 
 // open nav menu 
 
 const openNavHandler = () => {
-  menu.style.display = 'flex';
-  menuBtn.style.display = 'none';
-  closeBtn.style.display = 'inline-block';
+  navMenu.style.display = 'block';
+  navOpenBtn.style.display = 'none';
+  navCloseBtn.style.display = 'inline-block';
 }
 
 // close nav menu 
 
 const closeNavHandler = () => {
-  menu.style.display = 'none'; 
-  menuBtn.style.display = 'inline-block';
-  closeBtn.style.display = 'none';
+  navMenu.style.display = 'none'; 
+  navOpenBtn.style.display = 'inline-block';
+  navCloseBtn.style.display = 'none';
 }
 
-menuBtn.addEventListener('click', openNavHandler);
-closeBtn.addEventListener('click', openNavHandler);
+navOpenBtn.addEventListener('click', openNavHandler);
+navCloseBtn.addEventListener('click', closeNavHandler);
 
 // close nav menu on click of nav link on small screens 
 
-const navItems = menu.querySelectorAll('a');
-if(window.innerWidth < 768) {
+const navItems = navMenu.querySelectorAll('a');
+  if(window.innerWidth < 768) {
   navItems.forEach(item => {
     item.addEventListener('click', closeNavHandler);
   })
